@@ -13,8 +13,8 @@ class SplashViewBody extends StatelessWidget {
         children: [
           SvgPicture.asset(
             AssetsData.logo,
-            width: 200,
-            height: 50,
+            width: 250,
+            height: 60,
           ),
         ]);
   }
