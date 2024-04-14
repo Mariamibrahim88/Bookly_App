@@ -30,6 +30,7 @@ class BookDetailsViewBody extends StatelessWidget {
             child: Text('Rudyard Kipling', style: styles.textStyle18),
           ),
           const SizedBox(height: 16),
+          BookRating(mainAxisAlignment: MainAxisAlignment.center),
         ],
       ),
     );

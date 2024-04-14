@@ -62,7 +62,7 @@ class BestSellerBookItem extends StatelessWidget {
                     ),
                     //const SizedBox(width: 36.3),
                     const Spacer(),
-                    const BookRating(),
+                    BookRating(),
                   ],
                 )
               ],
