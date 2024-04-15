@@ -16,5 +16,5 @@ abstract class styles {
     fontSize: 14,
   );
   static const textStyle16 =
-      TextStyle(fontSize: 16, fontWeight: FontWeight.w500);
+      TextStyle(fontSize: 16, fontWeight: FontWeight.w600);
 }
