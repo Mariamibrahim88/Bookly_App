@@ -1,8 +1,9 @@
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class FeatureListViewItem extends StatelessWidget {
-  const FeatureListViewItem({super.key});
+  const FeatureListViewItem({super.key, required this.imageurl});
+
+  final String imageurl;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +15,8 @@ class FeatureListViewItem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Colors.white,
-          image: const DecorationImage(
-            image: AssetImage(AssetsData.test),
+          image: DecorationImage(
+            image: NetworkImage(imageurl),
             fit: BoxFit.cover,
           ),
         ),

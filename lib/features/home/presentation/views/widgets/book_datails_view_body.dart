@@ -28,7 +28,10 @@ class BookDetailsViewBody extends StatelessWidget {
                 const CustomDetailsBookAppBar(),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * 0.2),
-                  child: const FeatureListViewItem(),
+                  child: FeatureListViewItem(
+                    imageurl:
+                        'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gettyimages.com%2Fphotos%2Fbooks&psig=AOvVaw1jucGB_ggkpTeXGjkmEfCC&ust=1713910379328000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNDF9evr1oUDFQAAAAAdAAAAABAE',
+                  ),
                 ),
                 const SizedBox(height: 45),
                 Text('The Jungle Book',
