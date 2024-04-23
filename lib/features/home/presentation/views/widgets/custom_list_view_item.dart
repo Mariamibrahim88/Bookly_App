@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class FeatureListViewItem extends StatelessWidget {
   const FeatureListViewItem({super.key, required this.imageurl});
@@ -7,20 +8,18 @@ class FeatureListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.6 / 4,
-      child: Container(
-        // height: MediaQuery.of(context).size.height * 0.25,
-        // width: 111,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: Colors.white,
-          image: DecorationImage(
-            image: NetworkImage(imageurl),
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: AspectRatio(
+          aspectRatio: 2.6 / 4,
+          child: CachedNetworkImage(
+            imageUrl: imageurl,
+            placeholder: (context, url) => const Center(
+              child: Center(child: CircularProgressIndicator()),
+            ),
+            fit: BoxFit.fill,
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+          )),
     );
   }
 }

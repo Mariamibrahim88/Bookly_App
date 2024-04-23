@@ -37,6 +37,7 @@ class FeaturedBooksListView extends StatelessWidget {
         );
       } else {
         return const CustomLoadingIndicator();
+        //return const CustomLoadingIndicator();
       }
     });
   }
