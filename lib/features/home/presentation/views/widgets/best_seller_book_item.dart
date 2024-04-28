@@ -47,7 +47,7 @@ class BestSellerBookItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.50,
                   child: Text(
-                    'Harry Potter and the global of Fire',
+                    bookModel.volumeInfo.title!,
                     style:
                         styles.textStyle20.copyWith(fontFamily: KGTSectraFine),
                     softWrap: true,
@@ -57,19 +57,19 @@ class BestSellerBookItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'J.K. Rowling',
+                  bookModel.volumeInfo.authors![0],
                   style: styles.textStyle14.copyWith(color: Color(0xFF707070)),
                 ),
                 Row(
                   children: [
                     Text(
-                      '19.99 €',
-                      style: styles.textStyle20
+                      'Free',
+                      style: styles.textStyle16
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     //const SizedBox(width: 36.3),
                     const Spacer(),
-                    BookRating(),
+                    const BookRating(),
                   ],
                 )
               ],
