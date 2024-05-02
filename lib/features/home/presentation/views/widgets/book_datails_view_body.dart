@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/button_action.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_datails_app_bar.dart';
@@ -10,7 +11,9 @@ import 'package:flutter/widgets.dart';
 import 'similar_book_list_view.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+  const BookDetailsViewBody({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -29,24 +32,27 @@ class BookDetailsViewBody extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * 0.2),
                   child: FeatureListViewItem(
-                    imageurl:
-                        'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gettyimages.com%2Fphotos%2Fbooks&psig=AOvVaw1jucGB_ggkpTeXGjkmEfCC&ust=1713910379328000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNDF9evr1oUDFQAAAAAdAAAAABAE',
+                    imageurl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
                   ),
                 ),
-                const SizedBox(height: 45),
-                Text('The Jungle Book',
-                    style: styles.textStyle30
-                        .copyWith(fontWeight: FontWeight.w500)),
-                const SizedBox(height: 7),
-                const Opacity(
-                  opacity: 0.7,
-                  child: Text('Rudyard Kipling', style: styles.textStyle18),
+                const SizedBox(height: 30),
+                Text(
+                  bookModel.volumeInfo.title!,
+                  style:
+                      styles.textStyle30.copyWith(fontWeight: FontWeight.w500),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 7),
+                Opacity(
+                  opacity: 0.7,
+                  child: Text(bookModel.volumeInfo.authors![0],
+                      style: styles.textStyle16),
+                ),
+                const SizedBox(height: 10),
                 const BookRating(mainAxisAlignment: MainAxisAlignment.center),
-                const SizedBox(height: 37),
+                const SizedBox(height: 25),
                 const BookAction(),
-                const Expanded(child: const SizedBox(height: 50)),
+                const Expanded(child: SizedBox(height: 30)),
                 Align(
                   alignment: AlignmentDirectional.topStart,
                   child: Text(
@@ -55,9 +61,9 @@ class BookDetailsViewBody extends StatelessWidget {
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 10),
                 const SimilarBookListView(),
-                const Expanded(child: SizedBox(height: 40)),
+                const Expanded(child: SizedBox(height: 30)),
               ],
             ),
           ),
