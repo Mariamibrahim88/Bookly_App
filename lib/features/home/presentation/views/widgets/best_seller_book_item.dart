@@ -57,7 +57,7 @@ class BestSellerBookItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  bookModel.volumeInfo.authors![0],
+                  bookModel.volumeInfo?.authors?[0] ?? 'No Author',
                   style: styles.textStyle14.copyWith(color: Color(0xFF707070)),
                 ),
                 Row(
