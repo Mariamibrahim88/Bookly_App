@@ -8,3 +8,17 @@ sealed class SearchCubitState extends Equatable {
 }
 
 final class SearchCubitInitial extends SearchCubitState {}
+
+final class SearchCubitSuccess extends SearchCubitState {
+  final List<BookModel> books;
+
+  const SearchCubitSuccess({required this.books});
+}
+
+final class SearchCubitFailure extends SearchCubitState {
+  final String message;
+
+  const SearchCubitFailure({required this.message});
+}
+
+final class SearchCubitLoading extends SearchCubitState {}
